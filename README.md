@@ -12,6 +12,8 @@ In addition, we create vector index and plug graph database into LLM to enable b
 
 ## Setup
 
-`conda create --name myenv
+```
+conda create --name myenv
 conda activate myenv
-pip install -r requirements.txt`
+pip install -r requirements.txt
+```
