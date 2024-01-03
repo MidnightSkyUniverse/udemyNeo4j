@@ -1,0 +1,10 @@
+neo4j==5.15.0
+python-dotenv
+pandas
+langchain==0.0.350
+sentence-transformers
+openai==1.4.0
+# tiktoken #used with OpenAi embeddings
+
+
+
