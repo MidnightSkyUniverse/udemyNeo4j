@@ -3,11 +3,11 @@
 from dotenv import load_dotenv
 load_dotenv()
 
-
 import create_graph
 import create_embeddings
 import create_search_index
-import chat_with_data
+import neo4j_qa
+import vector_search
 
 
 steps = [
@@ -20,7 +20,11 @@ steps = [
     # Requires embeddings.csv file to be stored in import location for Neo4j
     # 'create_search_index',
 
-   'chat_with_data',
+   # Query database schema
+   # 'neo4j_qa',
+
+    # Query vector index
+    'vector_search',
 
 ]
 
@@ -35,8 +39,11 @@ def go():
     if 'create_search_index' in steps:
         create_search_index.go()
 
-    if 'chat_with_data' in steps:
-        chat_with_data.go()
+    if 'neo4j_qa' in steps:
+        neo4j_qa.go()
+
+    if 'vector_search' in steps:
+        vector_search.go()
 
 if __name__ == '__main__':
     go()
