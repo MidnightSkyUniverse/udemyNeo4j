@@ -1,6 +1,4 @@
 ## Introduction
-
-
 This is initial code for Udemy training that I created to teach how to create simple graph database on an example CSV.
 In addition, we create vector index and plug graph database into LLM to enable both vector and query schema questions to our data
 

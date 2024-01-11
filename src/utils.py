@@ -7,7 +7,6 @@ from langchain.embeddings import OpenAIEmbeddings
 """                                                                                                 
 Initiate the Neo4j Driver                                                                           
 """
-# tag::initDriver[]
 def init_driver(uri, username, password):
     pass
 
@@ -24,10 +23,6 @@ def execute_query(driver, query):
     pass
 
 
-def load_cypher_queries(file_path):
-    pass
-
-
 ########### Embeddings & LLMs ###########
 def _embedding_function():
     """Initiate embedding function"""
@@ -39,3 +34,19 @@ def _embedding_function_openai():
     # size: 1536
     return OpenAIEmbeddings()
 
+
+########### Supportive functions ###########
+def load_cypher_queries(file_path):
+    queries = []
+    with open(file_path, 'r') as file:
+        for line in file:
+            # Strip whitespace
+            line = line.strip()
+
+            # Check if line is empty or starts with //
+            if not line or line.startswith('//'):
+                continue
+
+            # Add the line to the list of queries
+            queries.append(line)
+    return queries
