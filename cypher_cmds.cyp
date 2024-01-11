@@ -24,10 +24,10 @@ LOAD CSV WITH HEADERS from 'https://raw.githubusercontent.com/MidnightSkyUnivers
 
 LOAD CSV WITH HEADERS from 'https://raw.githubusercontent.com/MidnightSkyUniverse/udemyNeo4j/master/data/skills_details.csv' AS row MERGE (s:Skill {name: row.Skill}) SET s.id = row.ID, s.description = row.Description, s.category=row.Category;
 
-LOAD CSV WITH HEADERS from 'https://raw.githubusercontent.com/MidnightSkyUniverse/udemyNeo4j/master/data/titles_and_skills.csv' AS row MATCH (t:Title {name: row.Title}) SET t.skill = split(row.Skill, '|');
+LOAD CSV WITH HEADERS from 'https://raw.githubusercontent.com/MidnightSkyUniverse/udemyNeo4j/master/data/titles_and_skills.csv' AS row MATCH (t:Title {name: row.Title}) SET t.skills = split(row.Skill, '|');
 
 
-MATCH (t:Title) UNWIND t.skill AS skill MERGE (s:Skill {name: skill}) MERGE (t)-[:REQUIRES]->(s);
+MATCH (t:Title) UNWIND t.skills AS skill MERGE (s:Skill {name: skill}) MERGE (t)-[:REQUIRES]->(s);
 
 MATCH (t:Title) REMOVE t.skills;
 
