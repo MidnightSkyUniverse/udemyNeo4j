@@ -1,6 +1,6 @@
 from neo4j import GraphDatabase
 from langchain.embeddings.sentence_transformer import SentenceTransformerEmbeddings
-from langchain.embeddings import OpenAIEmbeddings
+from langchain_community.embeddings import OpenAIEmbeddings
 
 
 ########### Neo4j ###########
