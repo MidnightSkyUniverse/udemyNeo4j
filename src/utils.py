@@ -17,7 +17,12 @@ def close_driver(driver: GraphDatabase):
     pass
 
 def clean_up_database(driver):
-   pass
+    delete_data = [
+        """MATCH (n)  DETACH DELETE n""",
+        """DROP CONSTRAINT skillUnique IF EXISTS""",
+        """DROP CONSTRAINT titleUnique IF EXISTS""",
+        """DROP INDEX skillDescription IF EXISTS""",
+    ]
 
 def execute_query(driver, query):
     pass
